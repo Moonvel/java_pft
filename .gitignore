@@ -40,3 +40,16 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+adressbook-web-tests/.gradle/8.4/executionHistory/executionHistory.bin
+adressbook-web-tests/.gradle/8.4/executionHistory/executionHistory.lock
+adressbook-web-tests/.gradle/8.4/fileHashes/fileHashes.bin
+adressbook-web-tests/.gradle/8.4/fileHashes/fileHashes.lock
+adressbook-web-tests/.gradle/8.4/fileHashes/resourceHashesCache.bin
+adressbook-web-tests/.gradle/buildOutputCleanup/buildOutputCleanup.lock
+adressbook-web-tests/build/reports/tests/test/classes/ru.stqa.pft.addressbook.GroupCreationTests.html
+adressbook-web-tests/build/reports/tests/test/index.html
+adressbook-web-tests/build/reports/tests/test/packages/ru.stqa.pft.addressbook.html
+adressbook-web-tests/build/test-results/test/binary/results.bin
+adressbook-web-tests/build/test-results/test/TEST-ru.stqa.pft.addressbook.GroupCreationTests.xml
+adressbook-web-tests/build/tmp/compileTestJava/previous-compilation-data.bin
+adressbook-web-tests/build/tmp/compileTestJava/compileTransaction/stash-dir/GroupCreationTests.class.uniqueId0
