@@ -5,6 +5,8 @@ import static org.testng.Assert.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.concurrent.TimeUnit;
+
 
 public class GroupCreationTests {
     private WebDriver driver;
@@ -18,7 +20,7 @@ public class GroupCreationTests {
         System.setProperty("webdriver.chrome.driver", "C:\\Windows\\System32\\0409\\chromedriver.exe");
         driver = new ChromeDriver();
         baseUrl = "https://www.google.com/";
-       //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         js = (JavascriptExecutor) driver;
     }
 
