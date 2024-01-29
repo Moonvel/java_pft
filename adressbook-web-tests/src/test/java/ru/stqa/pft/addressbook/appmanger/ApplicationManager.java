@@ -7,7 +7,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
-    WebDriver wd;
+
+        WebDriver wd;
+    private ContactHelper contactHelper;
     private SessionHelper sessionHelper;
     private  NavigationHelper navigationHelper;
     private GroupHelper groupHelper;
@@ -20,6 +22,7 @@ public class ApplicationManager {
         navigationHelper = new NavigationHelper(wd);
         sessionHelper = new SessionHelper(wd);
         sessionHelper.login("admin", "secret");
+        contactHelper = new ContactHelper(wd);
     }
 
 
@@ -39,4 +42,10 @@ public class ApplicationManager {
     public NavigationHelper getNavigationHelper() {
         return navigationHelper;
     }
+
+
+    public ContactHelper getContactHelper() {
+        return contactHelper;
+    }
 }
+
