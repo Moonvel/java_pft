@@ -66,3 +66,5 @@ adressbook-web-tests/.gradle/8.4/executionHistory/executionHistory.bin
 adressbook-web-tests/build/test-results/test/binary/output.bin
 adressbook-web-tests/build/test-results/test/binary/output.bin.idx
 *.bin
+*.bin
+*.lock
