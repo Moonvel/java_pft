@@ -71,3 +71,5 @@ adressbook-web-tests/build/test-results/test/binary/output.bin.idx
 *.lock
 =======
 >>>>>>> parent of 0280afa (checking for empty string and same value)
+adressbook-web-tests/build/reports/tests/test/index.html
+adressbook-web-tests/build/reports/tests/test/index.html
