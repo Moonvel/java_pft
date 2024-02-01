@@ -7,12 +7,11 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.BrowserType;
 
-import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
 
-    ;
+
     WebDriver wd;
     private ContactHelper contactHelper;
     private SessionHelper sessionHelper;
