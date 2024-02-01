@@ -24,20 +24,23 @@ public class ApplicationManager {
     }
 
     public void init() {
-        if (browser.equals(BrowserType.CHROME)){
-            System.setProperty("webdriver.chrome.driver", "C:\\Windows\\System32\\0409\\chromedriver.exe");
-            wd = new ChromeDriver();
-        } else if (browser.equals(BrowserType.FIREFOX)) {
-            System.setProperty("webdriver.gecko.driver", "C:\\Windows\\System32\\0409\\geckodriver.exe");
-            wd = new FirefoxDriver();
-        } else if (browser.equals(BrowserType.IE)){
-            System.setProperty("webdriver.ie.driver", "C:\\Windows\\System32\\0409\\IEDriverServer32.exe");
-            wd = new InternetExplorerDriver();
-
+        switch (browser) {
+            case BrowserType.CHROME:
+                System.setProperty("webdriver.chrome.driver", "C:\\Windows\\System32\\0409\\chromedriver.exe");
+                wd = new ChromeDriver();
+                break;
+            case BrowserType.FIREFOX:
+                System.setProperty("webdriver.gecko.driver", "C:\\Windows\\System32\\0409\\geckodriver.exe");
+                wd = new FirefoxDriver();
+                break;
+            case BrowserType.IE:
+                System.setProperty("webdriver.ie.driver", "C:\\Windows\\System32\\0409\\IEDriverServer32.exe");
+                wd = new InternetExplorerDriver();
+                break;
         }
 
 
-        wd.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+        wd.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
         groupHelper = new GroupHelper(wd);
         navigationHelper = new NavigationHelper(wd);
         sessionHelper = new SessionHelper(wd);
