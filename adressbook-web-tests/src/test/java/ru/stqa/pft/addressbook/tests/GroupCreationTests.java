@@ -7,7 +7,7 @@ import ru.stqa.pft.addressbook.model.GroupData;
 public class GroupCreationTests extends TestBase {
     @Test
     public void testGroupCreation() {
-        app.getGroupHelper().createGroup(new GroupData("Test1", null, null));
+        app.getGroupHelper().createGroup(new GroupData("Test2", null, null));
         app.getGroupHelper().initGroupCreation();
         app.getLogout();
 
