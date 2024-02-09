@@ -9,7 +9,6 @@ public class ContactCreationTests extends TestBase {
     public void testContactCreation(){
         app.getNavigationHelper().gotoHomePage();
         app.getContactHelper().createContact(new ContactData("Bob", "White", "Pause","+19123441212", "123"), true);
-        app.getLogout();
     }
 
 }

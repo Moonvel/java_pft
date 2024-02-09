@@ -15,6 +15,5 @@ public class ContactModificationTests extends TestBase {
         app.getContactHelper().fillContactForm(new ContactData("Lame", "Black", "Stop","+212123133", null), false);
         app.getContactHelper().submitContactModification();
         app.getNavigationHelper().gotoHomePage();
-        app.getLogout();
     }
 }
