@@ -21,11 +21,15 @@ public class ContactHelper extends HelperBase {
         click(By.name("submit"));
     }
 
-    public void selectContact(int index) {
-        wd.findElements(By.name("selected[]")).get(index).click();
+    public void selectContact(int id) {
+        wd.findElement(By.cssSelector("input[value='"+ id +"']")).click();
     }
-    public void deleteSelectedContacts() {
+    public void delete(ContactData contact) {
+        selectContact(contact.getId());
         click(By.xpath("//input[@value='Delete']"));
+        closeAlertWindow();
+        navigationHelper.gotoHomePage();
+
     }
     public void fillContactForm(ContactData contactData, boolean creation) {
         type(By.name("firstname"), contactData.getFirstName());
