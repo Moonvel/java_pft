@@ -7,26 +7,32 @@ public class ContactData {
     private final String firstName;
     private final String lastName;
     private final String nickName;
+    private final String home;
     private final String mobile;
+    private final String work;
     private final String group;
 
 
 
-    public ContactData(int Id, String firstName, String lastName, String nickName, String mobile, String group) {
+    public ContactData(int Id, String firstName, String lastName, String nickName, String home, String mobile, String work, String group) {
         this.Id = Id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.nickName = nickName;
+        this.home = home;
         this.mobile = mobile;
+        this.work = work;
         this.group = group;
     }
 
-    public ContactData(String firstName, String lastName, String nickName, String mobile, String group) {
+    public ContactData(String firstName, String lastName, String nickName, String home, String mobile, String work, String group) {
         this.Id = Integer.MAX_VALUE;
         this.firstName = firstName;
         this.lastName = lastName;
         this.nickName = nickName;
+        this.home = home;
         this.mobile = mobile;
+        this.work = work;
         this.group = group;
     }
 
@@ -49,6 +55,14 @@ public class ContactData {
         return mobile;
     }
 
+    public String getHome() {
+        return home;
+    }
+
+    public String getWork() {
+        return work;
+    }
+
     public String getGroup() {
         return group;
     }
@@ -56,6 +70,7 @@ public class ContactData {
     public void setId(int id) {
         Id = id;
     }
+
 
     @Override
     public boolean equals(Object o) {

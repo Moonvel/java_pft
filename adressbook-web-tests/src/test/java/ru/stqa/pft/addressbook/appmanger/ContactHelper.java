@@ -31,7 +31,10 @@ public class ContactHelper extends HelperBase {
         type(By.name("firstname"), contactData.getFirstName());
         type(By.name("lastname"), contactData.getLastName());
         type(By.name("nickname"), contactData.getNickName());
+        type(By.name("home"), contactData.getMobile());
         type(By.name("mobile"), contactData.getMobile());
+        type(By.name("work"), contactData.getWork());
+
 
         if (creation){
             new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
@@ -69,7 +72,7 @@ public class ContactHelper extends HelperBase {
             String lastName = cells.get(1).getText();
             String firstName = cells.get(2).getText();
             int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("id"));
-            ContactData contact = new ContactData(id, firstName, lastName, null, null, null);
+            ContactData contact = new ContactData(id, firstName, lastName, null, null, null, null,null);
             contacts.add(contact);
 
         }
@@ -81,14 +84,18 @@ public class ContactHelper extends HelperBase {
         List<WebElement> cells = row.findElements(By.tagName("td"));
         cells.get(7).findElement(By.tagName("a")).click();
     }
-  /*  public ContactData infoFromEditForm(ContactData contact) {
-        initContactModification(0);
+
+   //доделать
+     public ContactData infoFromEditForm(ContactData contact) {
+        initContactModification(contact.getId());
         String firstName = wd.findElement(By.name("firstname")).getAttribute("value");
         String lastname = wd.findElement(By.name("lastname")).getAttribute("value");
         String home = wd.findElement(By.name("home")).getAttribute("value");
         String mobile = wd.findElement(By.name("mobile")).getAttribute("value");
         String work = wd.findElement(By.name("work")).getAttribute("value");
         wd.navigate().back();
-        return null;
-    }*/
+        return new ContactData(
+                contact.getId(), contact.getFirstName(), contact.getLastName(), contact.getNickName(),
+                contact.getHome(), contact.getMobile(), contact.getWork(), contact.getGroup());
+    }
 }
