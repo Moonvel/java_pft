@@ -15,8 +15,8 @@ public class ContactDeletionTests extends TestBase{
                     "Ivan", "White", "Pause","+19123441212","+1123132","+1231233", "123"), true);
         }
         List<ContactData> before = app.getContactHelper().getContactList();
-        app.getContactHelper().selectContact(before.size() - 1);
-        app.getContactHelper().deleteSelectedContacts();
+        ContactData deletedContact = before.iterator().next();
+        app.getContactHelper().delete(deletedContact);
         app.getContactHelper().closeAlertWindow();
         app.goTo().gotoHomePage();
         List<ContactData> after = app.getContactHelper().getContactList();
