@@ -3,41 +3,18 @@ package ru.stqa.pft.addressbook.model;
 import java.util.Objects;
 
 public class ContactData {
-    private int Id;
-    private final String firstName;
-    private final String lastName;
-    private final String nickName;
-    private final String home;
-    private final String mobile;
-    private final String work;
-    private final String group;
+    private int id;
+    private String firstName;
+    private String lastName;
+    private String nickName;
+    private String home;
+    private String mobile;
+    private String work;
+    private String group;
 
-
-
-    public ContactData(int Id, String firstName, String lastName, String nickName, String home, String mobile, String work, String group) {
-        this.Id = Id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.nickName = nickName;
-        this.home = home;
-        this.mobile = mobile;
-        this.work = work;
-        this.group = group;
-    }
-
-    public ContactData(String firstName, String lastName, String nickName, String home, String mobile, String work, String group) {
-        this.Id = Integer.MAX_VALUE;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.nickName = nickName;
-        this.home = home;
-        this.mobile = mobile;
-        this.work = work;
-        this.group = group;
-    }
 
     public int getId() {
-        return Id;
+        return id;
     }
     public String getFirstName() {
         return firstName;
@@ -67,21 +44,70 @@ public class ContactData {
         return group;
     }
 
-    public void setId(int id) {
-        Id = id;
+    public ContactData withId(int id) {
+        this.id = id;
+        return this;
     }
 
+    public ContactData withFirstName(String firstName) {
+        this.firstName = firstName;
+        return this;
+    }
+
+    public ContactData withLastName(String lastName) {
+        this.lastName = lastName;
+        return this;
+    }
+
+    public ContactData withNickName(String nickName) {
+        this.nickName = nickName;
+        return this;
+    }
+
+    public ContactData withHome(String home) {
+        this.home = home;
+        return this;
+    }
+
+    public ContactData withMobile(String mobile) {
+        this.mobile = mobile;
+        return this;
+    }
+
+    public ContactData withWork(String work) {
+        this.work = work;
+        return this;
+    }
+
+    public ContactData withGroup(String group) {
+        this.group = group;
+        return this;
+    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ContactData that = (ContactData) o;
-        return Objects.equals(firstName, that.firstName) && Objects.equals(lastName, that.lastName);
+        return id == that.id && Objects.equals(firstName, that.firstName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstName, lastName);
+        return Objects.hash(id, firstName);
+    }
+
+    @Override
+    public String toString() {
+        return "ContactData{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", nickName='" + nickName + '\'' +
+                ", home='" + home + '\'' +
+                ", mobile='" + mobile + '\'' +
+                ", work='" + work + '\'' +
+                ", group='" + group + '\'' +
+                '}';
     }
 }
