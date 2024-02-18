@@ -7,19 +7,16 @@ import java.util.Set;
 
 public class Contacts extends ForwardingSet<ContactData> {
 
-    private Set<ContactData> delegate;
-
-    public Contacts(Contacts contacts) {
-        this.delegate = new HashSet<>(contacts.delegate);
-    }
-
-    public Contacts() {
-        this.delegate = new HashSet<>();
-    }
-
+    private final Set<ContactData> delegate;
     @Override
     protected Set<ContactData> delegate() {
         return delegate;
+    }
+    public Contacts(Contacts contacts) {
+        this.delegate = new HashSet<>(contacts.delegate);
+    }
+    public Contacts() {
+        this.delegate = new HashSet<>();
     }
 
     public Contacts withAdded(ContactData contact){
@@ -32,5 +29,4 @@ public class Contacts extends ForwardingSet<ContactData> {
         contacts.remove(contact);
         return contacts;
     }
-
 }
