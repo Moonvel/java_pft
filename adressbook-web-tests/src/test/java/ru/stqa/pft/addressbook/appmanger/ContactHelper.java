@@ -68,10 +68,10 @@ public class ContactHelper extends HelperBase {
             List<WebElement> cells = element.findElements(By.tagName("td"));
             String lastName = cells.get(1).getText();
             String firstName = cells.get(2).getText();
-            String[] phones = cells.get(5).getText().split("\n");
+            String allPhones = cells.get(5).getText();
             int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("id"));
             ContactData contact = new ContactData().withId(id).withFirstName(firstName).withLastName(lastName).
-                    withHomePhone(phones[0]).withMobilePhone(phones[1]).withWorkPhone(phones[2]);
+                    withAllPhones(allPhones);
             contacts.add(contact);
         }
         return contacts;
