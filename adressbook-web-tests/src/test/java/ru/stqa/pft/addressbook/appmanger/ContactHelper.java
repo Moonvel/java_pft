@@ -73,7 +73,7 @@ public class ContactHelper extends HelperBase {
             String allPhones = cells.get(5).getText();
             int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("id"));
             ContactData contact = new ContactData().withId(id).withFirstName(firstName).withLastName(lastName).
-                    withAllPhones(allPhones).withAddress(address).withEmail(email);
+                    withAddress(address).withEmail(email).withAllPhones(allPhones);
             contacts.add(contact);
         }
         return contacts;
@@ -99,5 +99,14 @@ public class ContactHelper extends HelperBase {
         return new ContactData().withId(contact.getId()).withFirstName(firstName)
                 .withLastName(lastname).withHomePhone(home).withMobilePhone(mobile).withWorkPhone(work).withAddress(address).withEmail(email);
 
+    }
+    private void initContactViewDetailsById(int id) {
+        wd.findElement(By.cssSelector(String.format("a[href='view.php?id=%s']", id))).click();
+    }
+    public String infoFromDetailForm(ContactData contact) {
+        initContactViewDetailsById(contact.getId());
+        String detailsFormInfo = wd.findElement(By.id("content")).getText();
+        wd.navigate().back();
+        return detailsFormInfo;
     }
 }
