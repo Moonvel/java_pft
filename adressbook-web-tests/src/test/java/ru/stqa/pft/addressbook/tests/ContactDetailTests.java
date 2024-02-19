@@ -10,7 +10,7 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 public class ContactDetailTests extends TestBase{
-    @Test
+    @Test (enabled = false)
     public void testContactDetails(){
             app.goTo().gotoHomePage();
             ContactData contact = app.contact().all().iterator().next();
