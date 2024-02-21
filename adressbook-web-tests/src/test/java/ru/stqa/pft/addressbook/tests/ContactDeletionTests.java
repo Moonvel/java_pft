@@ -14,7 +14,7 @@ public class ContactDeletionTests extends TestBase{
     public void ensurePreconditions() {
         if (app.contact().all().isEmpty()) {
             app.contact().create(new ContactData().withFirstName("Ivan")
-                    .withLastName("White").withNickName("Pause").withGroup("123"), true);
+                    .withLastName("White").withNickName("Pause"), true);
         }
     }
     @Test

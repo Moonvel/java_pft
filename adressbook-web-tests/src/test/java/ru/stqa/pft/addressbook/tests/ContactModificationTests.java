@@ -13,7 +13,7 @@ public class ContactModificationTests extends TestBase {
     public void ensurePreconditions() {
         if (app.contact().all().isEmpty()) {
             app.contact().create(new ContactData().withFirstName("Ivan")
-                    .withLastName("White").withNickName("Pause").withGroup("123"), true);
+                    .withLastName("White").withNickName("Pause"), true);
         }
     }
     @Test
@@ -23,7 +23,7 @@ public class ContactModificationTests extends TestBase {
         Contacts before = app.contact().all();
         ContactData modifiedContact = before.iterator().next();
         ContactData contact = new ContactData().withId(modifiedContact.getId())
-                .withFirstName("Peter").withLastName("Black").withNickName("Stop").withGroup("123");
+                .withFirstName("Peter").withLastName("Black").withNickName("Stop");
         app.contact().modify(contact);
         app.goTo().gotoHomePage();
         Contacts after = app.contact().all();
