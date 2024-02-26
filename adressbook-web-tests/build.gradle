@@ -26,13 +26,16 @@ test {
 }
 
 tasks.register('testGroups', Test) {
-    useTestNG() {
+    useTestNG {
         suites 'src/test/resources/testng-groups.xml'
     }
     if (project.hasProperty('browser')) {
         systemProperty('browser', "${browser}")
     }
     if (project.hasProperty('target')) {
+        systemProperty('target', "${target}")
+    }
+    if (project.hasProperty('verifyUI')) {
         systemProperty('target', "${target}")
     }
 }
@@ -45,6 +48,9 @@ tasks.register('testContacts', Test) {
         systemProperty('browser', "${browser}")
     }
     if (project.hasProperty('target')) {
+        systemProperty('target', "${target}")
+    }
+    if (project.hasProperty('verifyUI')) {
         systemProperty('target', "${target}")
     }
 }
