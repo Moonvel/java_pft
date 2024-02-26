@@ -22,6 +22,8 @@ public class ApplicationManager {
     private  NavigationHelper navigationHelper;
     private GroupHelper groupHelper;
     private final String browser;
+    private DbHelper dbHelper;
+
     public ApplicationManager(String browser) {
         this.browser = browser;
         properties = new Properties();
@@ -30,6 +32,9 @@ public class ApplicationManager {
     public void init() throws IOException {
         String target = System.getProperty("target", "local");
         properties.load(new FileReader(String.format("src/test/resources/%s.properties", target )));
+
+        dbHelper = new DbHelper();
+
         switch (browser) {
             case BrowserType.CHROME:
                 System.setProperty("webdriver.chrome.driver", "C:\\Windows\\System32\\0409\\chromedriver.exe");
@@ -44,8 +49,6 @@ public class ApplicationManager {
                 wd = new InternetExplorerDriver();
                 break;
         }
-
-
         wd.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
         wd.get(properties.getProperty("web.baseUrl"));
         groupHelper = new GroupHelper(wd);
@@ -60,22 +63,18 @@ public class ApplicationManager {
     public void getLogout() {
         wd.findElement(By.linkText("Logout")).click();
     }
-
     public void stop() {
         wd.quit();
     }
-
     public GroupHelper group() {
         return groupHelper;
     }
-
     public NavigationHelper goTo() {
         return navigationHelper;
     }
-
-
     public ContactHelper contact() {
         return contactHelper;
     }
+    public DbHelper db(){return dbHelper;}
 }
 

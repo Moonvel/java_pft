@@ -12,20 +12,20 @@ public class GroupModificationTests extends TestBase {
     @BeforeMethod
     public void ensurePreconditions() {
         app.goTo().groupPage();
-        if (app.group().all().isEmpty()) {
+        if (app.db().groups().isEmpty()){
             app.group().create(new GroupData().withName("Test1"));
         }
     }
 
     @Test
     public void testGroupModification() {
-        Groups before = app.group().all();
+        Groups before = app.db().groups();
         GroupData modifiedGroup = before.iterator().next();
         GroupData group = new GroupData()
                 .withId(modifiedGroup.getId()).withName("321").withHeader("321").withFooter("321");
         app.group().modify(group);
         assertThat(app.group().count(),equalTo(before.size()));
-        Groups after = app.group().all();
+        Groups after = app.db().groups();
         assertThat(after, equalTo(before.withOut(modifiedGroup).withAdded(group)));
 
     }
