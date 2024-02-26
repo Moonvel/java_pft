@@ -90,3 +90,5 @@ public class GroupDataGenerator {
 
 
 }
+
+//-c 2 -d json -f src/test/resources/groups.json
