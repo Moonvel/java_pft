@@ -1,0 +1,37 @@
+plugins {
+    id 'java'
+}
+
+repositories {
+    maven {
+        url = 'https://repo1.maven.org/maven2/'
+        url = 'https://repo.maven.apache.org/maven2'
+    }
+}
+
+dependencies {
+    implementation 'org.testng:testng:6.9.10'
+    implementation 'org.seleniumhq.selenium:selenium-java:3.10.0'
+    implementation 'org.hamcrest:hamcrest:2.2'
+}
+
+test {
+    useTestNG()
+}
+
+test {
+    useTestNG {
+        suites 'src/test/resources/testng.xml'
+    }
+    if (project.hasProperty('browser')) {
+        systemProperty('browser', "${browser}")
+    }
+    if (project.hasProperty('target')) {
+        systemProperty('target', "${target}")
+    }
+    if (project.hasProperty('verifyUI')) {
+        systemProperty('target', "${target}")
+    }
+}
+
+
