@@ -19,8 +19,8 @@ test {
     useTestNG()
 }
 
-test {
-    useTestNG {
+/*test {
+    useTestNG() {
         suites 'src/test/resources/testng.xml'
     }
     if (project.hasProperty('browser')) {
@@ -32,6 +32,6 @@ test {
     if (project.hasProperty('verifyUI')) {
         systemProperty('target', "${target}")
     }
-}
+}*/
 
 
