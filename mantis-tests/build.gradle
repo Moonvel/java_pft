@@ -1,38 +1,34 @@
-plugins {
-    id 'java'
-}
+apply plugin: 'java'
+
 
 repositories {
-    maven {
-        url = 'https://repo1.maven.org/maven2/'
-        url = 'https://repo.maven.apache.org/maven2'
-    }
+    mavenCentral()
 }
 
 dependencies {
     implementation 'org.testng:testng:6.9.10'
-    implementation 'org.seleniumhq.selenium:selenium-java:3.10.0'
-    implementation 'org.hamcrest:hamcrest:2.2'
-    implementation 'commons-net:commons-net:3.4'
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.10.0'
+    implementation group: 'org.hamcrest', name: 'java-hamcrest', version: '2.0.0.0'
+    implementation 'org.apache.httpcomponents:httpclient:4.5.12'
+    implementation group: 'commons-net', name: 'commons-net', version: '3.9.0'
+    implementation group: 'org.subethamail', name: 'subethasmtp', version: '3.1.7'
+    implementation group: 'ru.lanwen.verbalregex', name: 'java-verbal-expressions', version: '1.4'
+    implementation group: 'biz.futureware.mantis', name: 'mantis-axis-soap-client', version: '1.2.19'
+    implementation 'ch.qos.logback:logback-classic:1.1.5'
 }
 
 test {
     useTestNG()
 }
 
-/*test {
+task test1 (type: Test) {
     useTestNG() {
         suites 'src/test/resources/testng.xml'
     }
     if (project.hasProperty('browser')) {
-        systemProperty('browser', "${browser}")
+        systemProperty 'browser', "${browser}"
     }
     if (project.hasProperty('target')) {
-        systemProperty('target', "${target}")
+        systemProperty 'target', "${target}"
     }
-    if (project.hasProperty('verifyUI')) {
-        systemProperty('target', "${target}")
-    }
-}*/
-
-
+}
