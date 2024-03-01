@@ -27,7 +27,7 @@ test {
     useTestNG()
 }
 
-tasks testGroups(type: Test) {
+task testGroups(type: Test) {
     useTestNG {
         suites 'src/test/resources/testng-groups.xml'
     }
@@ -42,7 +42,7 @@ tasks testGroups(type: Test) {
     }
 }
 
-tasks testContacts(type: Test) {
+task testContacts(type: Test) {
     useTestNG() {
         suites 'src/test/resources/testng-contacts.xml'
     }
