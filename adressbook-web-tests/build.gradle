@@ -20,13 +20,14 @@ dependencies {
     compile 'ch.qos.logback:logback-classic:1.1.5'
     compile 'mysql:mysql-connector-java:5.1.38'
     compile 'org.hibernate:hibernate-core:5.1.0.Final'
+
 }
 
 test {
     useTestNG()
 }
 
-tasks.register('testGroups', Test) {
+tasks testGroups(type: Test) {
     useTestNG {
         suites 'src/test/resources/testng-groups.xml'
     }
@@ -41,7 +42,7 @@ tasks.register('testGroups', Test) {
     }
 }
 
-tasks.register('testContacts', Test) {
+tasks testContacts(type: Test) {
     useTestNG() {
         suites 'src/test/resources/testng-contacts.xml'
     }
